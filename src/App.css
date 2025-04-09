@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+/* Welcome Banner */
+.welcome-banner {
+  width: 100%;
+}
+
+.welcome-banner .line-horizontal {
+  width: 80%;
+  height: 2px;
+  background-color: #000;
+  opacity: 0.3;
+}
+
+.welcome-banner .welcome-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+/* Responsive Touch */
+@media (max-width: 768px) {
+  .welcome-banner .line-horizontal {
+    width: 60%;
+  }
+
+  .welcome-banner .welcome-text {
+    font-size: 1.8rem;
+  }
+}
