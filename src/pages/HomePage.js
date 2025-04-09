@@ -1,27 +1,40 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchCountries, loadMore, filterByRegion } from '../redux/countrySlice';
-import { Container, Row, Col, Button, Navbar, Nav } from 'react-bootstrap';
-import Slider from '../components/Slider';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  fetchCountries,
+  loadMore,
+  filterByRegion,
+} from "../redux/countrySlice";
+import { Container, Row, Col, Button, Navbar, Nav } from "react-bootstrap";
+import Slider from "../components/Slider";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaYoutube,
+} from "react-icons/fa";
 
 // ✅ MOVE THIS ABOVE HomePage
 const Footer = () => (
   <footer className="text-center mt-5 mb-4">
     <div className="social-icons text-center d-flex justify-content-center gap-3">
-                <i className="fab fa-google"></i>
-                <i className="fab fa-facebook-f"></i>
-                <i className="fab fa-linkedin-in"></i>
-                <i className="fab fa-twitter"></i>
-              </div>
+      <i className="fab fa-google"></i>
+      <i className="fab fa-facebook-f"></i>
+      <i className="fab fa-linkedin-in"></i>
+      <i className="fab fa-twitter"></i>
+    </div>
     <p className="mb-1">Example@email.com</p>
-    <small className="text-muted">Copyright © 2020 Name. All rights reserved.</small>
+    <small className="text-muted">
+      Copyright © 2020 Name. All rights reserved.
+    </small>
   </footer>
 );
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const { filtered, visible, status, error, selectedRegion } = useSelector((state) => state.countries);
+  const { filtered, visible, status, error, selectedRegion } = useSelector(
+    (state) => state.countries
+  );
 
   useEffect(() => {
     dispatch(fetchCountries());
@@ -32,19 +45,22 @@ const HomePage = () => {
       {/* Navbar */}
       <Navbar expand="md" className="mb-4 px-3 shadow-sm bg-white">
         <Container fluid className="justify-content-between">
-          <Navbar.Brand><h4 className="m-0">Countries</h4></Navbar.Brand>
+          <Navbar.Brand>
+            <h4 className="m-0">Countries</h4>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="region-navbar" />
           <Navbar.Collapse id="region-navbar">
             <Nav className="ms-auto d-flex gap-3 align-items-center">
-              {['All', 'Asia', 'Europe'].map((region) => (
+              {["All", "Asia", "Europe"].map((region) => (
                 <Nav.Link
                   key={region}
                   onClick={() => dispatch(filterByRegion(region))}
                   style={{
-                    cursor: 'pointer',
-                    fontWeight: selectedRegion === region ? 'bold' : 'normal',
-                    textDecoration: selectedRegion === region ? 'underline' : 'none',
-                    color: selectedRegion === region ? '#000' : '#666',
+                    cursor: "pointer",
+                    fontWeight: selectedRegion === region ? "bold" : "normal",
+                    textDecoration:
+                      selectedRegion === region ? "underline" : "none",
+                    color: selectedRegion === region ? "#000" : "#666",
                   }}
                 >
                   {region}
@@ -62,11 +78,12 @@ const HomePage = () => {
         <div className="welcome-line bottom-line"></div>
       </div>
 
-      {/* Slider */}
-      <Slider />
+      <div className="my-5">
+        <Slider />
+      </div>
 
       {/* Country Grid */}
-      {status === 'loading' && <p>Loading countries...</p>}
+      {status === "loading" && <p>Loading countries...</p>}
       {error && <p>Error: {error}</p>}
 
       <Row>
@@ -97,8 +114,6 @@ const HomePage = () => {
       )}
       <Footer />
     </Container>
-
-    
   );
 };
 

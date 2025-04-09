@@ -41,19 +41,26 @@ const Slider = () => {
   };
 
   return (
-    <div className="slider-container">
-      <button className="nav left" onClick={prevSlide}><FaChevronLeft /></button>
-      <img src={slides[current].image} alt={`Slide ${current}`} className="slide-img" />
-      <button className="nav right" onClick={nextSlide}><FaChevronRight /></button>
+    <div className="slider-with-image">
+      <div className="slider-container">
+        <button className="nav left" onClick={prevSlide}><FaChevronLeft /></button>
+        <img src={slides[current].image} alt={`Slide ${current}`} className="slide-img" />
+        <button className="nav right" onClick={nextSlide}><FaChevronRight /></button>
 
-      <div className="dots-container">
-        {slides.map((_, index) => (
-          <span
-            key={index}
-            className={`dot ${index === current ? 'active' : ''}`}
-            onClick={() => goToSlide(index)}
-          ></span>
-        ))}
+        <div className="dots-container">
+          {slides.map((_, index) => (
+            <span
+              key={index}
+              className={`dot ${index === current ? 'active' : ''}`}
+              onClick={() => goToSlide(index)}
+            ></span>
+          ))}
+        </div>
+      </div>
+      <div className="extra-image-container">
+
+
+        <img src="/images/g20-g-twenty-flag-country-international-group-meeting-conference-summit-g-membership-organization-member-government-flag-european-union-america-saudi-arabia-politic-economy-business-relation-3d-render-photo.jpg" alt="Description of image" className="extra-image" />
       </div>
     </div>
   );

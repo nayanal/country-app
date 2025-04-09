@@ -1,21 +1,44 @@
+/* Container for slider and extra image */
+.slider-with-image {
+  display: flex;
+  align-items: stretch; /* Ensures children stretch to the same height */
+  gap: 20px; /* Space between slider and extra image */
+}
+
+/* Slider container */
 .slider-container {
+  flex: 1;
   position: relative;
-  width: 90%;
-  max-width: 800px;
-  margin: 40px auto;
   overflow: hidden;
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
+/* Slide images */
 .slide-img {
   width: 100%;
-  height: 400px;
+  height: 100%;
   object-fit: cover;
-  transition: all 0.5s ease-in-out;
   border-radius: 15px;
 }
 
+/* Extra image container */
+.extra-image-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+/* Extra image */
+.extra-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container without distortion */
+  border-radius: 15px;
+}
+
+/* Navigation buttons */
 .nav {
   position: absolute;
   top: 50%;
@@ -36,6 +59,7 @@
   right: 15px;
 }
 
+/* Dots container */
 .dots-container {
   display: flex;
   justify-content: center;
@@ -55,4 +79,15 @@
 
 .dot.active {
   background-color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slider-with-image {
+    flex-direction: column;
+  }
+
+  .extra-image-container {
+    order: -1; /* Places the extra image above the slider in mobile view */
+  }
 }
