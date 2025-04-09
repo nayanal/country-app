@@ -60,7 +60,7 @@ const Slider = () => {
       <div className="extra-image-container">
 
 
-        <img src="/images/g20-g-twenty-flag-country-international-group-meeting-conference-summit-g-membership-organization-member-government-flag-european-union-america-saudi-arabia-politic-economy-business-relation-3d-render-photo.jpg" alt="Description of image" className="extra-image" />
+        <img src="/images/g20flag.jpg" alt="Description of image" className="extra-image" />
       </div>
     </div>
   );
